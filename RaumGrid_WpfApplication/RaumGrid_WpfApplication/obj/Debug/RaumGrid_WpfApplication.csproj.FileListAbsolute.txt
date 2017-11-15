@@ -1,0 +1,14 @@
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\bin\Debug\RaumGrid_WpfApplication.exe.config
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\RaumGrid_WpfApplication.csprojResolveAssemblyReference.cache
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\App.g.cs
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\RaumGrid_WpfApplication_MarkupCompile.cache
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\bin\Debug\RaumGrid_WpfApplication.exe
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\bin\Debug\RaumGrid_WpfApplication.pdb
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\MainWindow.g.cs
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\RaumGrid_WpfApplication_MarkupCompile.lref
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\MainWindow.baml
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\RaumGrid_WpfApplication.g.resources
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\RaumGrid_WpfApplication.Properties.Resources.resources
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\RaumGrid_WpfApplication.csproj.GenerateResource.Cache
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\RaumGrid_WpfApplication.exe
+C:\Users\Zimmermann\Documents\C#\WPF\RaumGrid_WpfApplication\RaumGrid_WpfApplication\obj\Debug\RaumGrid_WpfApplication.pdb
