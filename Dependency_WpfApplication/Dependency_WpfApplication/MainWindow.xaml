@@ -1,0 +1,32 @@
+﻿<Window x:Class="Dependency_WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dependency_WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="700">
+    <Grid Background="Purple">
+        <Grid.RowDefinitions>
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" 
+                Content="Wie spät ist es denn?" 
+                Margin="20" 
+                Background="Honeydew" 
+                ToolTip="heh! clicky hier"
+                Click="btn_AnfrageClicked"/>
+
+        <Button Grid.Row="1" 
+                Content="Hey hey! You you!" 
+                Margin="20" 
+                Background="Cyan"
+                ToolTip="Gimme warm, gimme soft"
+                Click="btn_Anfrage_Click"/>
+
+    </Grid>
+
+</Window>
