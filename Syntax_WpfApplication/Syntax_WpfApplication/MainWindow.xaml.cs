@@ -24,12 +24,31 @@ namespace Syntax_WpfApplication
         {
             InitializeComponent();
 
-            knopf1.Content = "kno1";
-            
+            /*knopf1.Content = "kno1";
             knopf2.Content = "kno2";
             knopf3.Content = "kno3 weil er so toll is";
-            knopf4.Content = "kno4";
-            
+            knopf4.Content = "kno4";*/
+
+
+            // schleife
+            /* for (int zaehl = 0; zaehl < 50; zaehl++)
+            {
+                Button knopf = new Button();
+                knopf.Name = "knopf_" + zaehl.ToString();
+                knopf.Content = "k" + zaehl.ToString();
+                knopf.BorderThickness = new Thickness(4, 4, 4, 4);
+                knopf.BorderBrush = new SolidColorBrush(Color.FromRgb(0, 200, 0));
+                anzeigefeld.Children.Add(knopf);
+            }
+            */
+            /*int z;
+            z = anzeigefeld.Children.Count;
+            anzahlAnzeige.Content = "es sind "+ z.ToString() +" Felder im Grid";*/
+        }
+
+        private void Nord_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
