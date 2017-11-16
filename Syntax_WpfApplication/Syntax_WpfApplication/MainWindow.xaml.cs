@@ -44,11 +44,57 @@ namespace Syntax_WpfApplication
             /*int z;
             z = anzeigefeld.Children.Count;
             anzahlAnzeige.Content = "es sind "+ z.ToString() +" Felder im Grid";*/
+
+            foreach (var item in anzeigefeld.Children)       // Content = Name
+            {
+                if (item.GetType() == typeof(System.Windows.Controls.Button))
+                {
+                    ((Button)item).Content = ((Button)item).Name;
+                    
+                }
+            }
+            for (char zeile='A'; zeile <= 'H'; zeile++)
+            {
+                for (int spalte = 1; spalte <= 8; spalte++)
+                {
+                    Button knopf = new Button();
+                    knopf.Content = "" + zeile.ToString() + spalte.ToString();
+                    knopf.BorderThickness = new Thickness(2, 2, 2, 2);
+                    knopf.Click += richtung_schreiben;      // += zefix
+                    // MessageBox.Show(knopf.Content.ToString());
+                    anzeigefeld.Children.Add(knopf);
+                }
+            }
         }
 
-        private void Nord_Click(object sender, RoutedEventArgs e)
+        private void richtung_schreiben(object sender, RoutedEventArgs e)
         {
+            
+            MessageBox.Show(((Button)sender).Content.ToString());
+        }
+
+            /*for (int zaehl = 0; zaehl < 64; zaehl++)
+        {
+            Button knopf = new Button();
+            knopf.Name = "Feld_" + zaehl.ToString();
+            knopf.Content = "feld" + zaehl.ToString();
+            knopf.BorderThickness = new Thickness(4, 4, 4, 4);
+            anzeigefeld.Children.Add(knopf);
+        }*/
+        }
+
+            /* private void richtung_schreiben(object sender, EventArgs e)
+            {
+                anzeige.Content += (((Button)sender).Name) + " ";
+                zaehler++;
+                if(zaehler > 8)
+                {
+                    anzeige.Content += "\n";
+                    zaehler = 0;
+                }
+            }   */
+
+
 
         }
-    }
-}
+

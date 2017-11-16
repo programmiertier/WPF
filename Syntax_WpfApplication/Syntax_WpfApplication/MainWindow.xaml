@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Syntax_WpfApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="600" Width="600">
     <UniformGrid Name="anzeigefeld" Background="Plum">   <!-- zwingt gleichförmiges Aussehen -->
         <!-- Beispiele für Schreibweisen -->
         
@@ -20,15 +20,17 @@
         <Button Name="knopf7" Height="150" Width="250"/>
         <Button Name="knopf8" Height="150" Width="250"/>
         <Button Name="anzahlAnzeige" Height="150" Width="250"/> -->
+        <!--
         <Button />
-        <Button Name="Nord" Background="AliceBlue"/>
+        <Button Name="UP"  Background="AliceBlue" Click="richtung_schreiben"/>
         <Button />
-        <Button Name="West" Background="AliceBlue"/>
-        <Label Content="Label hier"/>
-        <Button Name="Ost" Background="AliceBlue"/>
+        <Button Name="LEFT" Background="AliceBlue" Click="richtung_schreiben"/>
+        <Label Name="anzeige"/>
+        <Button Name="RIGHT" Background="AliceBlue" Click="richtung_schreiben"/>
         <Button />
-        <Button Name="Süd" Background="AliceBlue"/>
+        <Button Name="DOWN" Background="AliceBlue" Click="richtung_schreiben"/>
         <Button />
+        -->
 
     </UniformGrid>
 </Window>
