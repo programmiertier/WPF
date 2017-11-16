@@ -25,9 +25,10 @@ namespace Syntax_WpfApplication
             InitializeComponent();
 
             knopf1.Content = "kno1";
-            knopf1.Margin = new Thickness(-399-50, -299-200, 0, 0);
-            // knopf2.Content = "kno2";
-            // knopf3.Content = "kno3 weil er so toll is";
+            
+            knopf2.Content = "kno2";
+            knopf3.Content = "kno3 weil er so toll is";
+            knopf4.Content = "kno4";
             
         }
     }

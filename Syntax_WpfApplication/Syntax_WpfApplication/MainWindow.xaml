@@ -6,16 +6,13 @@
         xmlns:local="clr-namespace:Syntax_WpfApplication"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-    <Grid>
+    <UniformGrid>   <!-- zwingt gleichförmiges Aussehen -->
         <!-- Beispiele für Schreibweisen -->
-        <Button Name="knopf4" Content="OK" BorderThickness="5,5,5,5" Height="150" Width="250"/>
-        
-        <Button Name="knopf2" Height="150" Width="250"></Button>
-        <Button Name="knopf3" Opacity="0.4" Height="150" Width="250">
-            kno3
-        </Button>
-        <Button Name="knopf1" HorizontalAlignment="Left" Height="150" Width="200"/>
-        
 
-    </Grid>
+        <Button Name="knopf1" Content="eins" Height="150" Width="250"/>
+        <Button Name="knopf2" Content="zwei" Height="150" Width="250"/>
+        <Button Name="knopf3" Content="drei" Height="150" Width="250"/>
+        <Button Name="knopf4" Content="vier" Height="150" Width="250"/>
+
+    </UniformGrid>
 </Window>
