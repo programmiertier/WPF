@@ -93,8 +93,5 @@ namespace Syntax_WpfApplication
                     zaehler = 0;
                 }
             }   */
-
-
-
         }
 
