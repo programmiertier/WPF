@@ -23,6 +23,12 @@ namespace StackpanelAndBinding_WpfApplication
         public MainWindow()
         {
             InitializeComponent();
+
+            // Binding in C#
+            // Text="{Binding ElementName=oben, Path=Text}"
+            Binding kopierenVonText = new Binding("Text");
+            kopierenVonText.Source = oben;
+            unten.SetBinding(TextBox.TextProperty, kopierenVonText);
         }
     }
 }

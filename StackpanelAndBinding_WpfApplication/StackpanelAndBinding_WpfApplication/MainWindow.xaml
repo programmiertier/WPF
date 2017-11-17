@@ -9,7 +9,7 @@
     <Grid Name="grittygrid">
         <StackPanel Margin="50, 50, 0, 0" Width="200">
             <TextBox Name="oben" />
-            <TextBox Name="unten" Text="{Binding ElementName=oben, Path=Text}"/>
+            <TextBox Name="unten" />
         </StackPanel>
         
     </Grid>
