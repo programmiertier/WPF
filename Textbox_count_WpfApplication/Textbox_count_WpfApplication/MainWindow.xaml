@@ -1,0 +1,14 @@
+﻿<Window x:Class="Textbox_count_WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Textbox_count_WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="550">
+    <Grid Name="Raster">
+        <TextBox Name="boxeins" Margin="20, 40, 413, 40" BorderBrush="Aqua" BorderThickness="2,2,2,2" />
+        <Label Name="labelBuchstaben" Margin="143,40,166,171" BorderBrush="Aqua" BorderThickness="2,2,2,2" />
+        <Label Name="labelWorte" Margin="143, 122, 166, 80" BorderBrush="Aqua" BorderThickness="2,2,2,2" />
+    </Grid>
+</Window>
