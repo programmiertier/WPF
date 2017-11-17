@@ -26,10 +26,14 @@ namespace MoreClasse_WpfApplication
             for (int zaehl = 0; zaehl < 64; zaehl++)
             {
                 Label label = new Label();
+                uniformiert.Children.Add(label);        // call by reference, deswegen egal, wo es steht
                 label.Name = "label" + zaehl;
-                label.Content = label.Name;
-                uniformiert.Children.Add(label);
+                label.Content = label.Name;             // bei einmaliger Vergabe, ist es vom Speicher egal, aber wenn ich zehnmal "label" +zaehl vergeben möchte, ist das hier label.Content = label.Name
                 label.MouseDown += label_MouseDown;
+
+                /* Binding angepasst = new Binding("Content");      Das war jetzt eher Mist... hat aber lang gedauert. Sehr schön
+                angepasst.Source = Name;
+                label.SetBinding(Label.ContentProperty, angepasst); */
             }
         }
         private void label_MouseDown(object sender, MouseButtonEventArgs e)     // RoutedEventArgs statt MouseButtonEventArgs geht auch
