@@ -1,0 +1,19 @@
+﻿<Window x:Class="StackPanel_WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StackPanel_WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel Background="Beige" Width="400" Margin="30,60,0,0" FlowDirection="RightToLeft">
+        <Button Height="25" Background="DarkSalmon" Content="Element 1"></Button>
+        <StackPanel Orientation="Vertical">
+            <Button Height="25" Background="GreenYellow" Content="Element 2"></Button>
+            <Button Height="25" Background="Aqua" Content="Element 3"></Button>
+            <Button Height="25" Background="Plum" Content="Element 4"></Button>
+        </StackPanel>
+        <Button Background="Azure" Height="25" Content="Element 5"></Button>
+
+    </StackPanel>
+</Window>
