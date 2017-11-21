@@ -6,18 +6,18 @@
         xmlns:local="clr-namespace:Grid_WpfApplication"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid Name="Gritty">
+    <Grid Name="grittyGrid" ShowGridLines="True">   <!-- Linien anzeigen, für den Anfang praktisch -->
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition RowDefinition.Height="25"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition ColumnDefinition.Width="*"/>
+            <ColumnDefinition ColumnDefinition.Width="*"/>
+            <ColumnDefinition ColumnDefinition.Width="2*"/>  <!-- "2*" 2 Teile von (im Moment 4)-->
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="1" Grid.Column="1" Background="DarkOrchid">Hier ist das X</Button>
+        <Button Grid.Row="1" Grid.Column="1" Background="DarkOrchid">dasX</Button>
         <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">Text</Button>
         <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Background="Plum">Spalte</Button>
         <Button Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Cyan" Opacity="0.5">Ich liege über den anderen</Button>
