@@ -23,6 +23,11 @@ namespace Grid_WpfApplication
         public MainWindow()
         {
             InitializeComponent();
+            btndock2.Content = "Button2hier";
+            /*for (int zaehl = 0; zaehl < grittyGrid.Children.Count; zaehl++)
+            {
+                MessageBox.Show("zaehl:" + zaehl + "ist ein" + grittyGrid.Children[zaehl]);
+            }*/
         }
     }
 }

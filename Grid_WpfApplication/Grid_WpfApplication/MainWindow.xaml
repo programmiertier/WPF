@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Grid_WpfApplication"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid Name="grittyGrid" ShowGridLines="True">   <!-- Linien anzeigen, für den Anfang praktisch -->
+    <Grid Name="grittyGrid" ShowGridLines="True">
+        <!-- Linien anzeigen, für den Anfang praktisch -->
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition RowDefinition.Height="25"/>
@@ -15,11 +16,17 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition ColumnDefinition.Width="*"/>
             <ColumnDefinition ColumnDefinition.Width="*"/>
-            <ColumnDefinition ColumnDefinition.Width="2*"/>  <!-- "2*" 2 Teile von (im Moment 4)-->
+            <ColumnDefinition ColumnDefinition.Width="2*"/>
+            <!-- "2*" 2 Teile von (im Moment 4)-->
         </Grid.ColumnDefinitions>
+        <Button Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Cyan" Opacity="0.5">Ich liege über den anderen</Button>
         <Button Grid.Row="1" Grid.Column="1" Background="DarkOrchid">dasX</Button>
         <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">Text</Button>
-        <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Background="Plum">Spalte</Button>
-        <Button Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Cyan" Opacity="0.5">Ich liege über den anderen</Button>
+        <DockPanel Grid.Row="0" Grid.Column="2">
+            <Button Background="Plum">1</Button>
+            <Button Background="Honeydew" Name="btndock2">2</Button>
+            <Button Background="LightBlue">3</Button>
+        </DockPanel>
+        <GridSplitter Grid.Column="0" Background="Red" Width="10" />
     </Grid>
 </Window>
