@@ -20,9 +20,10 @@ namespace ButtonControls_WpfApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        public static string Bildpfad;
         public MainWindow()
         {
+            Bildpfad = "C:\\Users\\Zimmermann\\Documents\\C#\\WPF\\ButtonControls_WpfApplication\\";
             InitializeComponent();
             /*Button knopf2 = new Button();
             Grid.SetRow(knopf2, 1);
@@ -49,7 +50,7 @@ namespace ButtonControls_WpfApplication
             label_checked.Content = "Knopf ist aktiv";
             label_unchecked.Content = "";
             Image bildchen = new Image();
-            bildchen.Source = new BitmapImage(new Uri("C:\\Users\\Zimmermann\\Documents\\C#\\WPF\\ButtonControls_WpfApplication\\smiley.jpg"));
+            bildchen.Source = new BitmapImage(new Uri(Bildpfad + "smiley.jpg"));
             togglebutton.Content = bildchen;
         }
 
@@ -58,7 +59,7 @@ namespace ButtonControls_WpfApplication
             label_unchecked.Content = "Knopf ist nicht aktiv";
             label_checked.Content = "";
             Image bildchen = new Image();
-            bildchen.Source = new BitmapImage(new Uri("C:\\Users\\Zimmermann\\Documents\\C#\\WPF\\ButtonControls_WpfApplication\\traurig.jpg"));
+            bildchen.Source = new BitmapImage(new Uri(Bildpfad + "traurig.jpg"));
             togglebutton.Content = bildchen;
             
         }
