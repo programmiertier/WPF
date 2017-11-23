@@ -73,10 +73,12 @@ namespace ButtonZaehl_WpfApplication
 
             return grittygrid;
         }
+
         private static void hoch_Click(object sender, RoutedEventArgs re)
         {
             zahlhier.Content = Convert.ToInt32(zahlhier.Content.ToString()) + 1;
         }
+
         private static void runter_Click(object sender, RoutedEventArgs re)
         {
             zahlhier.Content = Convert.ToInt32(zahlhier.Content.ToString()) - 1;
