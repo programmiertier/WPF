@@ -1,0 +1,25 @@
+﻿<Window x:Class="ButtonControls_WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ButtonControls_WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid ShowGridLines="True" Name="gritty">
+        <Grid.ColumnDefinitions>    <!-- öffnendes Tag -->
+            <ColumnDefinition />         <!-- Kindelement -->
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>   <!-- schließendes Tag -->
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Click="simple_gelickt">Simple</Button>   <!-- dem Button wird gesagt, wo er hin soll -->
+        <ToggleButton Grid.Column="0" Grid.Row="1">Toggle</ToggleButton>
+        <RepeatButton Grid.Column="0" Grid.Row="2">Repeat</RepeatButton>
+    </Grid>
+</Window>
