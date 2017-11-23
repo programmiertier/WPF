@@ -20,6 +20,7 @@ namespace ButtonControls_WpfApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +36,42 @@ namespace ButtonControls_WpfApplication
         public void simple_gelickt(object sender, RoutedEventArgs e)    // EventArgs würde nur den Klick annehmen und nichts weiter machen
         {
             label_simple.Content = "Simple wurde geklickt";
+        }
+
+        public void toggle_geklickt(object sender, RoutedEventArgs e)
+        {
+            label_toggle.Content = "Toggle wurde geklickt";
+            
+        }
+
+        public void toggle_checked(object sender, RoutedEventArgs e)
+        {
+            label_checked.Content = "Knopf ist aktiv";
+            label_unchecked.Content = "";
+            Image bildchen = new Image();
+            bildchen.Source = new BitmapImage(new Uri("C:\\Users\\Zimmermann\\Desktop\\smiley.jpg"));
+            togglebutton.Content = bildchen;
+        }
+
+        public void toggle_unchecked(object sender, RoutedEventArgs e)
+        {
+            label_unchecked.Content = "Knopf ist nicht aktiv";
+            label_checked.Content = "";
+            Image bildchen = new Image();
+            bildchen.Source = new BitmapImage(new Uri("C:\\Users\\Zimmermann\\Desktop\\traurig.jpg"));
+            togglebutton.Content = bildchen;
+            
+        }
+
+        public void repeat_geklickt(object sender, RoutedEventArgs e)    // EventArgs würde nur den Klick annehmen und nichts weiter machen
+        {
+            label_repeat.Content = "Repeat wurde geklickt";
+            
+        }
+
+        public void butt(object sender, RoutedEventArgs e)
+        {
+            togglebutton.Content = "ᕙ(⇀‸↼‶)ᕗ";
         }
     }
 }
