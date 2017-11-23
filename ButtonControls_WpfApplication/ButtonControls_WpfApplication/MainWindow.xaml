@@ -7,19 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid ShowGridLines="True" Name="gritty">
-        <Grid.ColumnDefinitions>    <!-- öffnendes Tag -->
-            <ColumnDefinition />         <!-- Kindelement -->
+        <Grid.ColumnDefinitions>
+            <!-- öffnendes Tag -->
+            <ColumnDefinition />
+            <!-- Kindelement -->
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
-        </Grid.ColumnDefinitions>   <!-- schließendes Tag -->
+        </Grid.ColumnDefinitions>
+        <!-- schließendes Tag -->
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" Grid.Row="0" Click="simple_gelickt">Simple</Button>   <!-- dem Button wird gesagt, wo er hin soll -->
-        <ToggleButton Grid.Column="0" Grid.Row="1">Toggle</ToggleButton>
-        <RepeatButton Grid.Column="0" Grid.Row="2">Repeat</RepeatButton>
+        <Button 
+            Grid.Column="0" 
+            Grid.Row="0" 
+            Margin="5,5,5,5"
+            Click="simple_gelickt" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            Width="100"
+            Height="20">Simple</Button>
+        <!-- dem Button wird gesagt, wo er hin soll -->
+        <ToggleButton Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Toggle</ToggleButton>
+        <RepeatButton Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Repeat</RepeatButton>
+        <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Name="label_simple" Content ="-" />
     </Grid>
 </Window>

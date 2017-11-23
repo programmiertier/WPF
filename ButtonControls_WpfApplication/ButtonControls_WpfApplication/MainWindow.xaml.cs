@@ -27,12 +27,14 @@ namespace ButtonControls_WpfApplication
             Grid.SetRow(knopf2, 1);
             Grid.SetColumn(knopf2, 0);
             gritty.Children.Add(knopf2);    */
+
+           
         }
 
         // das ist der Eventhandler, eine Methode, eine Adresse, die vom Delegaten aufgerufen wird
         public void simple_gelickt(object sender, RoutedEventArgs e)    // EventArgs würde nur den Klick annehmen und nichts weiter machen
         {
-            MessageBox.Show("Simple geklickt");
+            label_simple.Content = "Simple wurde geklickt";
         }
     }
 }
