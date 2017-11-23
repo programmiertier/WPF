@@ -49,7 +49,7 @@ namespace ButtonControls_WpfApplication
             label_checked.Content = "Knopf ist aktiv";
             label_unchecked.Content = "";
             Image bildchen = new Image();
-            bildchen.Source = new BitmapImage(new Uri("C:\\Users\\Zimmermann\\Desktop\\smiley.jpg"));
+            bildchen.Source = new BitmapImage(new Uri("C:\\Users\\Zimmermann\\Documents\\C#\\WPF\\ButtonControls_WpfApplication\\smiley.jpg"));
             togglebutton.Content = bildchen;
         }
 
@@ -58,7 +58,7 @@ namespace ButtonControls_WpfApplication
             label_unchecked.Content = "Knopf ist nicht aktiv";
             label_checked.Content = "";
             Image bildchen = new Image();
-            bildchen.Source = new BitmapImage(new Uri("C:\\Users\\Zimmermann\\Desktop\\traurig.jpg"));
+            bildchen.Source = new BitmapImage(new Uri("C:\\Users\\Zimmermann\\Documents\\C#\\WPF\\ButtonControls_WpfApplication\\traurig.jpg"));
             togglebutton.Content = bildchen;
             
         }
