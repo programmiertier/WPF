@@ -51,11 +51,21 @@
         <RepeatButton 
             Grid.Column="0" 
             Grid.Row="2" 
+            Click="repeat_geklicktUP"
             Margin="5,5,5,5"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"
             Width="100"
-            Height="20">Repeat</RepeatButton>
+            Height="20">RepeatUP</RepeatButton>
+        <RepeatButton 
+            Grid.Column="2" 
+            Grid.Row="2" 
+            Click="repeat_geklicktDOWN"
+            Margin="5,5,5,5"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            Width="100"
+            Height="20">RepeatDown</RepeatButton>
         <Label 
             Grid.Column="1" 
             Grid.Row="0" 
@@ -89,7 +99,14 @@
             Grid.Row="2" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Name="label_repeat" 
-            Content ="-" />
+            Name="label_repeatUP" 
+            Content ="0" />
+        <Label 
+            Grid.Column="3" 
+            Grid.Row="2" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Name="label_repeatDOWN" 
+            Content ="0" />
     </Grid>
 </Window>

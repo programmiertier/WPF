@@ -63,15 +63,14 @@ namespace ButtonControls_WpfApplication
             
         }
 
-        public void repeat_geklickt(object sender, RoutedEventArgs e)    // EventArgs würde nur den Klick annehmen und nichts weiter machen
+        public void repeat_geklicktUP(object sender, RoutedEventArgs e)
         {
-            label_repeat.Content = "Repeat wurde geklickt";
-            
+            label_repeatUP.Content = Convert.ToInt32(label_repeatUP.Content.ToString()) + 1;
         }
 
-        public void butt(object sender, RoutedEventArgs e)
+        public void repeat_geklicktDOWN(object sender, RoutedEventArgs e)
         {
-            togglebutton.Content = "ᕙ(⇀‸↼‶)ᕗ";
+            label_repeatDOWN.Content = Convert.ToInt32(label_repeatDOWN.Content.ToString()) - 1;
         }
     }
 }
