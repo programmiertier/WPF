@@ -27,14 +27,13 @@ namespace RadioControls_WpfApplication
         public MainWindow()
         {
             InitializeComponent();
-            RadioButton sinnlos = new RadioButton();
-            sinnlos.Content = "total sinnlos";
-            umschueler.Children.Add(sinnlos);
+            RadioButton baecker = new RadioButton();
+            baecker.Content = "Bäcker";
+            umschueler.Children.Add(baecker);
 
             foreach(string item in berufeliste)
             {
                 RadioButton futzi = new RadioButton { Content = item, Name = item };
-                
                 umschueler.Children.Add(futzi);
             }
         }
