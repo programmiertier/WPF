@@ -33,10 +33,20 @@ namespace RadioControls_WpfApplication
 
             foreach(string item in berufeliste)
             {
-                RadioButton futzi = new RadioButton { Content = item };
+                RadioButton futzi = new RadioButton { Content = item, Name = item };
                 
                 umschueler.Children.Add(futzi);
             }
+        }
+
+        private void maenlClick(object sender, RoutedEventArgs e)
+        {
+            auswahlhier.Content = "Ihre Auswahl ist:\n" + maenlRadioButton.Content;
+        }
+
+        private void weiblClick(object sender, RoutedEventArgs e)
+        {
+            auswahlhier.Content = "Ihre Auswahl ist:\n" + weiblRadioButton.Content;
         }
     }
 }
