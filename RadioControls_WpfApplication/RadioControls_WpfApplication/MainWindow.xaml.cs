@@ -42,11 +42,25 @@ namespace RadioControls_WpfApplication
         private void maenlClick(object sender, RoutedEventArgs e)
         {
             auswahlhier.Content = "Ihre Auswahl ist:\n" + maenlRadioButton.Content;
+            foreach (RadioButton futzi in umschueler.Children)
+            {
+                if (futzi.IsChecked == true)
+                {
+                    auswahlhier.Content += "\n" + futzi.Content.ToString();
+                }
+            }
         }
 
         private void weiblClick(object sender, RoutedEventArgs e)
         {
             auswahlhier.Content = "Ihre Auswahl ist:\n" + weiblRadioButton.Content;
+            foreach (RadioButton futzi in umschueler.Children)
+            {
+                if (futzi.IsChecked == true)
+                {
+                    auswahlhier.Content += "\n" + futzi.Content.ToString();
+                }
+            }
         }
     }
 }
