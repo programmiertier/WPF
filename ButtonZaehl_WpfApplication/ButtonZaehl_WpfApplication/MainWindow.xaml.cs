@@ -29,18 +29,18 @@ namespace ButtonZaehl_WpfApplication
         public static Grid gritty()
         {
             Button hoch = new Button();
-            hoch.Name = "herauf";
+            hoch.Name = "rauf";
             hoch.Content = hoch.Name;
             hoch.Click += new RoutedEventHandler(hoch_Click);
 
             Button runter = new Button();
-            runter.Name = "herab";
+            runter.Name = "runter";
             runter.Content = runter.Name;
             runter.Click += new RoutedEventHandler(runter_Click);
 
 
             zahlhier.Name = "Volumen";
-            zahlhier.Content = "0";
+            zahlhier.Content = "1000";
             zahlhier.FontSize = 36;
             zahlhier.VerticalAlignment = VerticalAlignment.Center;
             zahlhier.HorizontalAlignment = HorizontalAlignment.Center;
@@ -76,12 +76,12 @@ namespace ButtonZaehl_WpfApplication
 
         private static void hoch_Click(object sender, RoutedEventArgs re)
         {
-            zahlhier.Content = Convert.ToInt32(zahlhier.Content.ToString()) + 1;
+            zahlhier.Content = Convert.ToInt32(zahlhier.Content.ToString()) + 10;
         }
 
         private static void runter_Click(object sender, RoutedEventArgs re)
         {
-            zahlhier.Content = Convert.ToInt32(zahlhier.Content.ToString()) - 1;
+            zahlhier.Content = Convert.ToInt32(zahlhier.Content.ToString()) - 10;
         }
     }
 }
