@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:RadioControls_WpfApplication"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid x:Name="myGrid" HorizontalAlignment="Left" Height="209" Margin="10,10,0,0" VerticalAlignment="Top" Width="450">
+    <Grid x:Name="myGrid" ShowGridLines="True" HorizontalAlignment="Left" Height="182" Margin="10,37,0,0" VerticalAlignment="Top" Width="450">
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -18,14 +18,19 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <RadioButton x:Name="radioButton" Content="Vollhorst" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="radioButton1" Content="FIAE" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1">
-            <RadioButton x:Name="radioButton2" Content="Männlich" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="radioButton3" Content="Weiblich" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        </StackPanel>
+        <GroupBox Grid.Column="0" x:Name="groupBox" Header="Beruf" BorderBrush="Purple" BorderThickness="3">
+            <StackPanel Name="umschueler">
+                <RadioButton x:Name="radioButton" Content="Vollhorst" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <RadioButton x:Name="radioButton1" Content="FIAE" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Column="1" x:Name="Geschl" Header="Geschlecht" BorderBrush="Purple" BorderThickness="3">
+            <StackPanel>
+
+                <RadioButton x:Name="radioButton2" Content="Männlich" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <RadioButton x:Name="radioButton3" Content="Weiblich" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
     <!--
     <Grid ShowGridLines="True">

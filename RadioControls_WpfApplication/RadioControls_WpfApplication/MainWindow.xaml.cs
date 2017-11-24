@@ -20,9 +20,23 @@ namespace RadioControls_WpfApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<string> berufeliste = new List<string>
+        {
+            "Pixelschubse", "Kabelfummler", "Oida", "Kabelempfehler"
+        };
         public MainWindow()
         {
             InitializeComponent();
+            RadioButton sinnlos = new RadioButton();
+            sinnlos.Content = "total sinnlos";
+            umschueler.Children.Add(sinnlos);
+
+            foreach(string item in berufeliste)
+            {
+                RadioButton futzi = new RadioButton { Content = item };
+                
+                umschueler.Children.Add(futzi);
+            }
         }
     }
 }
