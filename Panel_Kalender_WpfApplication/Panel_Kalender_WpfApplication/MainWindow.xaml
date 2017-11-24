@@ -6,18 +6,47 @@
         xmlns:local="clr-namespace:Panel_Kalender_WpfApplication"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <StackPanel Name="kalender">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions Name="AprilTage">
-                
-            </Grid.ColumnDefinitions>
-            
-        </Grid>
-        
+    <StackPanel Name="Kalender" Orientation="Horizontal">
+        <DockPanel Name="April" Background="CornflowerBlue">
+            <Label DockPanel.Dock="Top">April</Label>
+            <StackPanel DockPanel.Dock="Left">
+                <Label>15</Label>
+                <Label>16</Label>
+                <Label>17</Label>
+                <Label>18</Label>
+                <Label>19</Label>
+            </StackPanel>
+            <Grid  ShowGridLines="True" Name="AprilTage">
+
+            </Grid>
+        </DockPanel>
+        <DockPanel Name="Mai" Background="Goldenrod">
+            <Label DockPanel.Dock="Top">Mai</Label>
+            <StackPanel DockPanel.Dock="Left">
+                <Label>20</Label>
+                <Label>21</Label>
+                <Label>22</Label>
+                <Label>23</Label>
+                <Label>24</Label>
+            </StackPanel>
+            <Grid Name ="MaiTage" ShowGridLines="True">
+
+            </Grid>
+        </DockPanel>
+        <DockPanel Name="Juni" Background="PowderBlue">
+            <Label DockPanel.Dock="Top">Juni</Label>
+            <StackPanel DockPanel.Dock="Left">
+                <Label>25</Label>
+                <Label>26</Label>
+                <Label>27</Label>
+                <Label>28</Label>
+                <Label>28</Label>
+            </StackPanel>
+            <Grid Name ="JunTage" ShowGridLines="True">
+
+            </Grid>
+        </DockPanel>
+
+
     </StackPanel>
 </Window>

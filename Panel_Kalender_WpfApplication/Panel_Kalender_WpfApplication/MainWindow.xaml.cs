@@ -23,28 +23,41 @@ namespace Panel_Kalender_WpfApplication
         public MainWindow()
         {
             InitializeComponent();
-            Label headline = new Label
+            for (int i = 1; i < 6; i++)
             {
-                Content = "April"
-            };
+                RowDefinition rd_april = new RowDefinition();
+                rd_april.Height = new GridLength(40);
+                RowDefinition rd_mai = new RowDefinition();
+                rd_mai.Height = new GridLength(40);
+                RowDefinition rd_jun = new RowDefinition();
+                rd_jun.Height = new GridLength(40);
 
-            kalender.Children.Add(headline);
-            ColumnDefinition cd_april = new ColumnDefinition();
-            cd_april.Width = new GridLength(10);
-            ColumnDefinition cd_mai = new ColumnDefinition();
-            cd_mai.Width = new GridLength(15);
-            ColumnDefinition cd_jun = new ColumnDefinition();
-            cd_jun.Width = new GridLength(20);
-            AprilTage.ColumnDefinitions.Add(cd_april);
-            MaiTage.ColumnDefinitions.Add(cd_mai);
-            JunTage.ColumnDefintions.Add(cd_jun);
-            for (int zaehl = 1; zaehl <= 30; zaehl++)
+                AprilTage.RowDefinitions.Add(rd_april);
+                MaiTage.RowDefinitions.Add(rd_mai);
+                JunTage.RowDefinitions.Add(rd_jun);
+
+            }
+            for (int i = 1; i < 8; i++)
+            {
+                ColumnDefinition cd_april = new ColumnDefinition();
+                cd_april.Width = new GridLength(30);
+                ColumnDefinition cd_mai = new ColumnDefinition();
+                cd_mai.Width = new GridLength(30);
+                ColumnDefinition cd_jun = new ColumnDefinition();
+                cd_jun.Width = new GridLength(30);
+                AprilTage.ColumnDefinitions.Add(cd_april);
+                MaiTage.ColumnDefinitions.Add(cd_mai);
+                JunTage.ColumnDefinitions.Add(cd_jun);
+
+            }
+            for (int i = 1; i <= 30; i++)
             {
                 Label tag = new Label();
-                Grid.SetColumn(tag, zaehl % 7);
-                Grid.SetRow(tag, (int)zaehl / 7);
-                tag.Content = zaehl;
+                Grid.SetColumn(tag, i % 7);
+                Grid.SetRow(tag, (int)i / 7);
+                tag.Content = i;
                 AprilTage.Children.Add(tag);
+                // nicht sofort möglich wegen Update GUI Prozess JunTage.Children.Add(tag);
             }
         }
     }
