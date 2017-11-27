@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Canvas_WpfApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" FontSize="12">
+        Title="MainWindow" Height="600" Width="800" FontSize="12" Loaded="Window_Loaded">
     <Canvas Name="anzeige" Height="600" Width="800">
+        <Ellipse Name="elli" Fill="Black" Width="50" Height="50" />
+
+        <!-- 
         <Border Name="kunde" BorderBrush="Red" BorderThickness="5" CornerRadius="10" Height="auto">
             <StackPanel>
                 <Label Content="Kunde" />
@@ -15,6 +18,6 @@
         </Border>
         <Button Name="start" Content="Start" Canvas.Left="650" Canvas.Top="200" Width="75" Click="start_Click"/>
         <Button Name="progress" Content="bewegt sich" Canvas.Left="25" Canvas.Top="500" Width="75"/>
-
+        -->
     </Canvas>
 </Window>

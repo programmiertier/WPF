@@ -41,5 +41,18 @@ namespace Canvas_WpfApplication
                 Duration = TimeSpan.Parse("0:0:10")
             };
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DoubleAnimation bewegung = new DoubleAnimation
+            {
+                From = 50,
+                To = 500,
+                Duration = TimeSpan.Parse("0:0:5")
+                
+            };
+            elli.BeginAnimation(Canvas.TopProperty, bewegung);
+            elli.BeginAnimation(Canvas.LeftProperty, bewegung);
+            
+        }
     }
 }
