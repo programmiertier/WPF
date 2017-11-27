@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;   // speziell für Animationen
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -28,7 +29,17 @@ namespace ButtonAnimation_WpfApplication
 
         public void Winodw_Loaded(object sender, RoutedEventArgs e) // sobald der Schirm einmal komplett geladen ist
         {
-            MessageBox.Show(sender.ToString() + e.ToString());
+            // from, to or by
+            // <type>Animation
+            DoubleAnimation mehrBreite = new DoubleAnimation();
+
+            // ausgehend vom Startwert
+
+            // ändert den Zielwert
+
+            // in welcher Zeit soll die Änderung erfolgen
+
+            // MessageBox.Show(sender.ToString() + e.ToString());       // hat funktioniert, also weiter
         }
     }
 }
