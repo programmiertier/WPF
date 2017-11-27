@@ -31,16 +31,23 @@ namespace ButtonAnimation_WpfApplication
         {
             // from, to or by
             // <type>Animation
-            DoubleAnimation mehrBreite                          = new DoubleAnimation();
+            DoubleAnimation veraenderung                          = new DoubleAnimation();
 
             // ausgehend vom Startwert, wenn dieser beim Start geändert werden soll
-            
+            veraenderung.From = 50;   // cs überschreibt xaml
             // ändert den Zielwert
-            mehrBreite.To = 300;
+            veraenderung.To = 300;
             // in welcher Zeit soll die Änderung erfolgen
-            mehrBreite.Duration = TimeSpan.Parse("0:0:3");
+            veraenderung.Duration = TimeSpan.Parse("0:0:3");
+            // optional kann man es natürlich auch wieder rückgängig machen
+            veraenderung.AutoReverse = true;
+            // und wiederholen kann man das auch lassen
+            veraenderung.RepeatBehavior = RepeatBehavior.Forever;
             // wer soll animiert werden
-            btn01.BeginAnimation(Button.WidthProperty, mehrBreite);
+            btn01.BeginAnimation(Button.WidthProperty, veraenderung);
+            btn01.BeginAnimation(Button.HeightProperty, veraenderung);
+
+            
             // MessageBox.Show(sender.ToString() + e.ToString());       // hat funktioniert, also weiter
         }
     }
