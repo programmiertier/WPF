@@ -31,7 +31,7 @@ namespace ButtonAnimation_WpfApplication
         {
             // from, to or by
             // <type>Animation
-            DoubleAnimation veraenderung                          = new DoubleAnimation();
+            /* DoubleAnimation veraenderung                          = new DoubleAnimation();
 
             // ausgehend vom Startwert, wenn dieser beim Start geändert werden soll
             veraenderung.From = 50;   // cs überschreibt xaml
@@ -45,10 +45,57 @@ namespace ButtonAnimation_WpfApplication
             veraenderung.RepeatBehavior = RepeatBehavior.Forever;
             // wer soll animiert werden
             btn01.BeginAnimation(Button.WidthProperty, veraenderung);
-            btn01.BeginAnimation(Button.HeightProperty, veraenderung);
+            btn01.BeginAnimation(Button.HeightProperty, veraenderung); */
 
-            
+            btn01.BeginAnimation(WidthProperty, new DoubleAnimation
+                {
+                From = 100,
+                To = 300,
+                Duration = TimeSpan.Parse("0:0:4"),
+                AutoReverse = true,
+                RepeatBehavior = RepeatBehavior.Forever
+            });
+
+            btn02.BeginAnimation(WidthProperty, new DoubleAnimation
+            {
+                From = 50,
+                To = 150,
+                Duration = TimeSpan.Parse("0:0:10"),
+                BeginTime = TimeSpan.Parse("0:0:4"),
+                AutoReverse = true,
+                RepeatBehavior = RepeatBehavior.Forever
+            });
+
+            btn03.BeginAnimation(WidthProperty, new DoubleAnimation
+            {
+                From = 100,
+                To = 300,
+                Duration = TimeSpan.Parse("0:0:10"),
+                
+                AutoReverse = true,
+                RepeatBehavior = RepeatBehavior.Forever
+            });
+
+            ColorAnimation bunti = new ColorAnimation();
+            btn04.Background = new SolidColorBrush(Colors.Purple);
+            bunti.From = Colors.Purple;
+            bunti.To = Colors.Plum;
+            bunti.Duration = TimeSpan.Parse("0:0:15");
+            bunti.AutoReverse = true;
+            bunti.RepeatBehavior = RepeatBehavior.Forever;
+            btn04.Background.BeginAnimation(SolidColorBrush.ColorProperty, bunti);
+
             // MessageBox.Show(sender.ToString() + e.ToString());       // hat funktioniert, also weiter
+            
+        }
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            btn05.Background = new SolidColorBrush(Colors.Orange);
+            ColorAnimation farbwechsel = new ColorAnimation();
+            farbwechsel.From = Colors.White;
+            farbwechsel.To = Colors.Red;
+            farbwechsel.Duration = new Duration(TimeSpan.Parse("0:0:16"));
+            btn05.Background.BeginAnimation(SolidColorBrush.ColorProperty, farbwechsel);
         }
     }
 }

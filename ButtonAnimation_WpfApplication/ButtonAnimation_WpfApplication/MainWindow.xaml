@@ -7,9 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="800"
         Loaded="Winodw_Loaded"
+        Name="fensterchen"
         >
     <Grid>
-        <Button Name="btn01" Width="100" Height="100">ok</Button>
-        
+        <StackPanel>
+            <Button Name="btn01" Width="100" Height="50">ok</Button>
+            <Button Name="btn02" Width="100" Height="50">2</Button>
+            <Button Name="btn03" Width="100" Height="50">3</Button>
+            <Button Name="btn04" Width="100" Height="50">4</Button>
+            <Label Name="btn05" Width="100" Height="100" Background="white" MouseEnter="btn_Click" >
+                Farbwechsel nach Klick
+            </Label>
+        </StackPanel>
     </Grid>
 </Window>
