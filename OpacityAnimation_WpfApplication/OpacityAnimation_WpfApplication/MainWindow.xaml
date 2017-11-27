@@ -1,0 +1,16 @@
+﻿<Window x:Class="OpacityAnimation_WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpacityAnimation_WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <TextBox Name="text" Width="200" Height="200" TextWrapping="Wrap" Opacity="1.0" BorderThickness="5">
+            Additional information: "AnimationTimeline" vom Typ "System.Windows.Media.Animation.DecimalAnimation" kann nicht zum Animieren der Opacity-Eigenschaft vom Typ "System.Double" verwendet werden.
+        </TextBox>
+        <Button Height="40" Width="60" Name="knopfi01" Click="knopfi01_Click" Content="verblassen"/>
+
+    </StackPanel>
+</Window>
