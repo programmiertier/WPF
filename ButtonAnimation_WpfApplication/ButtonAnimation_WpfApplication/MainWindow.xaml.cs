@@ -31,14 +31,16 @@ namespace ButtonAnimation_WpfApplication
         {
             // from, to or by
             // <type>Animation
-            DoubleAnimation mehrBreite = new DoubleAnimation();
+            DoubleAnimation mehrBreite                          = new DoubleAnimation();
 
-            // ausgehend vom Startwert
-
+            // ausgehend vom Startwert, wenn dieser beim Start geändert werden soll
+            
             // ändert den Zielwert
-
+            mehrBreite.To = 300;
             // in welcher Zeit soll die Änderung erfolgen
-
+            mehrBreite.Duration = TimeSpan.Parse("0:0:3");
+            // wer soll animiert werden
+            btn01.BeginAnimation(Button.WidthProperty, mehrBreite);
             // MessageBox.Show(sender.ToString() + e.ToString());       // hat funktioniert, also weiter
         }
     }
