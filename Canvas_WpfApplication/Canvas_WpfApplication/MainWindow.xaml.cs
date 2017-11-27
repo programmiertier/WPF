@@ -21,9 +21,13 @@ namespace Canvas_WpfApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static double strecke;
+        public static int durchlauf;
         public MainWindow()
         {
             InitializeComponent();
+            strecke = 475;
+            durchlauf = 1;
         }
         private void start_Click(object sender, RoutedEventArgs e)
         {
@@ -43,16 +47,51 @@ namespace Canvas_WpfApplication
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DoubleAnimation bewegung = new DoubleAnimation
+            DoubleAnimation untenbewegung = new DoubleAnimation
             {
-                From = 50,
-                To = 500,
-                Duration = TimeSpan.Parse("0:0:5")
-                
+
+                From = 0,
+                To = 475,
+                // AutoReverse = true,
+                // RepeatBehavior = RepeatBehavior.Forever,
+                Duration = TimeSpan.Parse("0:0:3")
             };
-            elli.BeginAnimation(Canvas.TopProperty, bewegung);
-            elli.BeginAnimation(Canvas.LeftProperty, bewegung);
+
+            DoubleAnimation querBewegung = new DoubleAnimation
+            {
+                From = -25,
+                To = 800,
+                Duration = TimeSpan.Parse("0:0:30")
+            };
+            untenbewegung.Completed += RunterRollen_Completed;
+            elli.BeginAnimation(Canvas.TopProperty, untenbewegung);
+            elli.BeginAnimation(Canvas.LeftProperty, querBewegung);
             
+        }
+
+        private void RunterRollen_Completed(object sender, EventArgs e)
+        {
+            durchlauf++;
+            strecke = strecke * 0.5;
+            DoubleAnimation bewegen = new DoubleAnimation
+            {
+                To = 475 - strecke,
+                Duration = TimeSpan.Parse("0:0:3"),
+                AutoReverse = true
+            };
+            if (durchlauf < 5)
+            { bewegen.Completed += RunterRollen_Completed; }
+            else
+            {   bewegen.Completed -= RunterRollen_Completed;
+                bewegen.Completed += ende; }
+            
+            elli.BeginAnimation(Canvas.TopProperty, bewegen);
+            
+            // MessageBox.Show("ist beendet");
+        }
+        private void ende(object sender, EventArgs e)
+        {
+            MessageBox.Show("ja is vorbei");
         }
     }
 }
