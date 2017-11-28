@@ -75,13 +75,19 @@ namespace KundeBewegen_WpfApplication
 
             double gang1Pos;
             Double.TryParse((gang1.GetValue(Canvas.TopProperty).ToString()), out gang1Pos);
-            if (aktuellePosition > gang1Pos)
+            if ((aktuellePosition % gang1Pos > 77) & nochnichtbesucht)
             {
                 bewegung.Content = "hier abbiegen";
                 _taktgeberHinab.Controller.Pause();
                 _taktgeberQuer.Controller.Resume();
                 nochnichtbesucht = !nochnichtbesucht;
                 
+            }
+            if ((aktuellePosition % gang1Pos) < 5)
+            {
+                nochnichtbesucht = true;
+                _taktgeberQuer.Controller.Begin();
+                _taktgeberHinab.Controller.Pause();
             }
         }
 
