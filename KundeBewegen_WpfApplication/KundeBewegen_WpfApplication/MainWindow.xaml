@@ -10,9 +10,14 @@
         <Border Name="kunde" BorderThickness="5" BorderBrush="Purple" CornerRadius="10">
         <StackPanel>
             <Label>Kunde</Label>
-                <Button>Liste</Button>
+                <Button Name="liste" Click="liste_Click">Liste</Button>
             </StackPanel>
         </Border>
         <Button Name="bewegung" Content="und los" Canvas.Left="10" Canvas.Top="550" Click="bewegung_Click"/>
+        <Button Name="zurueck" Content="zurück" Canvas.Left="160" Canvas.Top="550" Click="reset"/>
+        <Button Name="pause" Content="Pause" Canvas.Left="260" Canvas.Top="550" Click="pausieren"/>
+        <Button Name="weitergehts" Content="weiter" Canvas.Left="360" Canvas.Top="550" Click="weiter"/>
+        <Button Name="ende" Content="Ende" Canvas.Left="460" Canvas.Top="550" Click="beenden"/>
+        
     </Canvas>
 </Window>

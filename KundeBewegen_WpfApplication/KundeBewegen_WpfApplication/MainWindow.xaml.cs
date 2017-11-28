@@ -51,7 +51,40 @@ namespace KundeBewegen_WpfApplication
 
         private void taktgeberTickt(object sender, EventArgs e)
         {
-            MessageBox.Show(sender.ToString());
+            bewegung.Content = kunde.GetValue(Canvas.TopProperty);  // _taktgeber.CurrentTime.ToString();
+            double aktuellePosition;
+            Double.TryParse((kunde.GetValue(Canvas.TopProperty).ToString()), out aktuellePosition);
+            if (aktuellePosition > 200.0)
+            {
+                bewegung.Content = "halbe Strecke hamma";
+            }
+        }
+
+        private void pausieren(object sender, RoutedEventArgs e)
+        {
+            _taktgeber.Controller.Pause();
+        }
+
+        private void weiter(object sender, RoutedEventArgs e)
+        {
+            _taktgeber.Controller.Resume();
+        }
+
+        private void reset(object sender, RoutedEventArgs e)
+        {
+            _taktgeber.Controller.SkipToFill();
+        }
+
+        private void beenden(object sender, RoutedEventArgs e)
+        {
+            _taktgeber.Controller.SkipToFill();
+        }
+
+        private void liste_Click(object sender, RoutedEventArgs e)
+        {
+            _taktgeber.Controller.Pause();
+            MessageBox.Show("Anzeige der Einkaufsliste");
+            _taktgeber.Controller.Remove();
         }
     }
 }
