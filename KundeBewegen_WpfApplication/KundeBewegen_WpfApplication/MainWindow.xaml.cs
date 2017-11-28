@@ -84,7 +84,26 @@ namespace KundeBewegen_WpfApplication
         {
             _taktgeber.Controller.Pause();
             MessageBox.Show("Anzeige der Einkaufsliste");
-            _taktgeber.Controller.Remove();
+            _taktgeber.Controller.Resume();
+        }
+
+        private void kunde_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            _taktgeber.Controller.Pause();
+            MessageBox.Show("Anzeige der Einkaufsliste");
+            _taktgeber.Controller.Resume();
+        }
+
+        private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            speedration.Content = e.NewValue;
+            if (_taktgeber != null)
+            {
+                var bindung = new Binding();
+                bindung.Source = _taktgeber.Controller;
+                bindung.Path = new PropertyPath("SpeedRatio");
+                slider.SetBinding(Slider.ValueProperty, bindung);
+            }
         }
     }
 }
