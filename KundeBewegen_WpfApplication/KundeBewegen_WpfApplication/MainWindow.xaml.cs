@@ -21,7 +21,11 @@ namespace KundeBewegen_WpfApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AnimationClock _taktgeber = null;
+        private AnimationClock _taktgeberHinab = null;
+        private AnimationClock _taktgeberQuer = null;
+        public static double raumlaenge = 400;
+        public static double raumbreite = 600;
+        public static bool nochnichtbesucht = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,15 +37,28 @@ namespace KundeBewegen_WpfApplication
             // Bewegungsparameter festlegen
             DoubleAnimation kundeBewegung = new DoubleAnimation
             {
-                From = 0,
-                To = 400,
-                Duration = TimeSpan.Parse("0:0:3")
+                // From = 0,
+                To = raumlaenge,
+                By = 100,
+                Duration = TimeSpan.Parse("0:0:10")
             };
-            _taktgeber = kundeBewegung.CreateClock();
-            kunde.ApplyAnimationClock(Canvas.TopProperty, _taktgeber);
+            DoubleAnimation kundeBewegungQuer = new DoubleAnimation
+            {
+                From = 0,
+                To = raumbreite,
+                // AutoReverse = true,
+                Duration = TimeSpan.Parse("0:0:10")
+            };
+            _taktgeberHinab = kundeBewegung.CreateClock();
+            _taktgeberQuer = kundeBewegungQuer.CreateClock();
+            kunde.ApplyAnimationClock(Canvas.TopProperty, _taktgeberHinab);
+            kunde.ApplyAnimationClock(Canvas.LeftProperty, _taktgeberQuer);
+            _taktgeberQuer.Controller.Pause();
             // links Event          // rechts der Delegat (adresszeiger)
-            _taktgeber.Completed += taktgeberCompleted; // event, der am Ende
-            _taktgeber.CurrentTimeInvalidated += taktgeberTickt;
+            _taktgeberHinab.Completed += taktgeberCompleted; // event, der am Ende
+            _taktgeberHinab.CurrentTimeInvalidated += taktgeberHinabtickt;
+            EventHandler weiterrunter = (s, platzhalter) => _taktgeberHinab.Controller.Resume();
+            _taktgeberQuer.Completed += weiterrunter;
         }
 
         private void taktgeberCompleted(object sender, EventArgs e)     // nicht routed!    // animationclocks haben nur events, keine routed
@@ -49,58 +66,66 @@ namespace KundeBewegen_WpfApplication
             bewegung.Content = "angekommen";
         }
 
-        private void taktgeberTickt(object sender, EventArgs e)
+        private void taktgeberHinabtickt(object sender, EventArgs e)
         {
+            nochnichtbesucht = true;
             bewegung.Content = kunde.GetValue(Canvas.TopProperty);  // _taktgeber.CurrentTime.ToString();
             double aktuellePosition;
             Double.TryParse((kunde.GetValue(Canvas.TopProperty).ToString()), out aktuellePosition);
-            if (aktuellePosition > 200.0)
+
+            double gang1Pos;
+            Double.TryParse((gang1.GetValue(Canvas.TopProperty).ToString()), out gang1Pos);
+            if (aktuellePosition > gang1Pos)
             {
-                bewegung.Content = "halbe Strecke hamma";
+                bewegung.Content = "hier abbiegen";
+                _taktgeberHinab.Controller.Pause();
+                _taktgeberQuer.Controller.Resume();
+                nochnichtbesucht = !nochnichtbesucht;
+                
             }
         }
 
         private void pausieren(object sender, RoutedEventArgs e)
         {
-            _taktgeber.Controller.Pause();
+            _taktgeberHinab.Controller.Pause();
         }
 
         private void weiter(object sender, RoutedEventArgs e)
         {
-            _taktgeber.Controller.Resume();
+            _taktgeberHinab.Controller.Resume();
         }
 
         private void reset(object sender, RoutedEventArgs e)
         {
-            _taktgeber.Controller.SkipToFill();
+            _taktgeberHinab.Controller.Begin();
         }
 
         private void beenden(object sender, RoutedEventArgs e)
         {
-            _taktgeber.Controller.SkipToFill();
+            _taktgeberHinab.Controller.SkipToFill();
         }
 
         private void liste_Click(object sender, RoutedEventArgs e)
         {
-            _taktgeber.Controller.Pause();
+            _taktgeberHinab.Controller.Pause();
             MessageBox.Show("Anzeige der Einkaufsliste");
-            _taktgeber.Controller.Resume();
+            _taktgeberHinab.Controller.Resume();
         }
 
         private void kunde_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            _taktgeber.Controller.Pause();
+            _taktgeberHinab.Controller.Pause();
             MessageBox.Show("Anzeige der Einkaufsliste");
-            _taktgeber.Controller.Resume();
+            _taktgeberHinab.Controller.Resume();
         }
 
         private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             speedration.Content = e.NewValue;
-            if (_taktgeber != null)
+            if (_taktgeberHinab != null)
             {
                 var bindung = new Binding();
-                bindung.Source = _taktgeber.Controller;
+                bindung.Source = _taktgeberHinab.Controller;
                 bindung.Path = new PropertyPath("SpeedRatio");
                 slider.SetBinding(Slider.ValueProperty, bindung);
             }
