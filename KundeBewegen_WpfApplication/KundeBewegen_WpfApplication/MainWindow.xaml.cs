@@ -26,9 +26,24 @@ namespace KundeBewegen_WpfApplication
         public static double raumlaenge = 400;
         public static double raumbreite = 600;
         public static bool nochnichtbesucht = true;
+        double gangErreicht; // = 80.0;
+        double kundehoehe;
+        double gangHoehe;
         public MainWindow()
         {
             InitializeComponent();
+            MessageBox.Show(erstesRegal.ActualHeight.ToString());
+            for (int zaehl = 0; zaehl < 20; zaehl++)
+            {
+                Regal.Children.Add(new Label
+                {
+                    Content = zaehl,
+                    Background = Brushes.Green,
+                    BorderThickness = new Thickness(1),
+                    BorderBrush = Brushes.Black,
+                    Width = 30
+                });
+            }
         }
 
         private void bewegung_Click(object sender, RoutedEventArgs e)
@@ -74,21 +89,33 @@ namespace KundeBewegen_WpfApplication
             Double.TryParse((kunde.GetValue(Canvas.TopProperty).ToString()), out aktuellePosition);
 
             double gang1Pos;
-            Double.TryParse((gang1.GetValue(Canvas.TopProperty).ToString()), out gang1Pos);
-            if ((aktuellePosition % gang1Pos > 77) & nochnichtbesucht)
+            Double.TryParse((erstesRegal.GetValue(Canvas.TopProperty).ToString()), out gang1Pos);
+            if (aktuellePosition > gangErreicht)
             {
                 bewegung.Content = "hier abbiegen";
                 _taktgeberHinab.Controller.Pause();
-                _taktgeberQuer.Controller.Resume();
-                nochnichtbesucht = !nochnichtbesucht;
-                
+                quer(sender, e);
+                gangErreicht += (gangErreicht + gangHoehe);
+                MessageBox.Show("Nächstes Abbiegen bei: " + gangErreicht);
             }
-            if ((aktuellePosition % gang1Pos) < 5)
+        }
+
+        private void quer(object sender, EventArgs e)
+        {
+            DoubleAnimation gang = new DoubleAnimation
             {
-                nochnichtbesucht = true;
-                _taktgeberQuer.Controller.Begin();
-                _taktgeberHinab.Controller.Pause();
-            }
+                From = 0,
+                To = 750,
+                Duration = TimeSpan.Parse("0:0:5"),
+                AutoReverse = true
+            };
+            gang.Completed += Gang_Completed;
+            kunde.BeginAnimation(Canvas.LeftProperty, gang);
+        }
+
+        private void Gang_Completed(object sender, EventArgs e)
+        {
+            _taktgeberHinab.Controller.Resume();
         }
 
         private void pausieren(object sender, RoutedEventArgs e)
@@ -135,6 +162,18 @@ namespace KundeBewegen_WpfApplication
                 bindung.Path = new PropertyPath("SpeedRatio");
                 slider.SetBinding(Slider.ValueProperty, bindung);
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            gangErreicht = erstesRegal.ActualHeight;
+            kundehoehe = kunde.ActualHeight;
+            double top;
+            double bottom;
+            Double.TryParse(erstesRegal.GetValue(Canvas.BottomProperty).ToString(), out bottom);
+            Double.TryParse(zweitesRegal.GetValue(Canvas.TopProperty).ToString(), out top);
+            MessageBox.Show(bottom.ToString() + " " + top.ToString());
+            gangHoehe = top - gangErreicht;
         }
     }
 }

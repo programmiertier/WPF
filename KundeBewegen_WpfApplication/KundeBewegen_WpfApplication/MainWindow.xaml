@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KundeBewegen_WpfApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="620" Width="820">
+        Title="MainWindow" Height="620" Width="820" Loaded="Window_Loaded">
     <Canvas Name="raumdarstellung" Height="600" Width="800">
         <Border Name="kunde" Canvas.Top="2" BorderThickness="5" BorderBrush="Purple" CornerRadius="10" MouseDown="kunde_MouseDown">
-        <StackPanel>
+        <StackPanel Name="Regal">
             <Label>Kunde</Label>
                 <Button Name="liste" Click="liste_Click">Liste</Button>
             </StackPanel>
@@ -20,6 +20,11 @@
         <Button Name="ende" Content="Ende" Canvas.Left="460" Canvas.Top="500" Click="beenden"/>
         <Label Name="speedration" Content="x" Canvas.Left="10" Canvas.Top="530" />
         <Slider Name="slider" Canvas.Left="160" Canvas.Top="530" Width="400" ValueChanged="slider_ValueChanged" Value="1.0" Minimum="0.01" Maximum="5.0" />
-        <Rectangle Fill="Yellow" Opacity="0.2" Height="40" Width="400" Canvas.Left="50" Canvas.Top="20" Name="gang1" />
+        <Rectangle Fill="Yellow" Opacity="0.2" Height="40" Width="700" Canvas.Left="50" Canvas.Top="20" Name="erstesRegal" />
+        <Rectangle Fill="Yellow" Opacity="0.2" Height="40" Width="700" Canvas.Left="50" Canvas.Top="80" Name="zweitesRegal" />
+        <Rectangle Fill="Yellow" Opacity="0.2" Height="40" Width="700" Canvas.Left="50" Canvas.Top="140" Name="drittesRegal" />
+        <Rectangle Fill="Yellow" Opacity="0.2" Height="40" Width="700" Canvas.Left="50" Canvas.Top="200" Name="viertesRegal" />
+        
+
     </Canvas>
 </Window>
