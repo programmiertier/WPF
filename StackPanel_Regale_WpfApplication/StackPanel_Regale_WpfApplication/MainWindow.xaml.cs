@@ -83,7 +83,7 @@ namespace StackPanel_Regale_WpfApplication
             foreach (Label g in gangbei)
             {
                 Point relativePoint = g.TransformToAncestor(Application.Current.MainWindow).Transform(new Point(0, 0));
-                MessageBox.Show(relativePoint.ToString());
+                // MessageBox.Show(relativePoint.ToString());
                 Ellipse kundenAlsKreis = new Ellipse
                 {
                     Width = 10,
@@ -108,8 +108,36 @@ namespace StackPanel_Regale_WpfApplication
             y.To = relativePoint.Y;
             x.Duration = TimeSpan.Parse("0:0:2");
             y.Duration = TimeSpan.Parse("0:0:2");
+            x.Completed += x_Completed;
             kunde.BeginAnimation(Canvas.TopProperty, y);
             kunde.BeginAnimation(Canvas.LeftProperty, x);
+            // x.Completed += x_Completed;  // zwei Zeilen höher macht das dann auch Sinn, hier passiert nix
+        }
+
+        private void x_Completed(object sender, EventArgs e)
+        {
+            // MessageBox.Show("jetzt sollte ich in den Gang auch hinein gehen");
+            DoubleAnimation x = new DoubleAnimation();
+            x.By = canvas.Width; // Double.Parse(regale.Children[1].GetValue(WidthProperty).ToString());
+            x.Duration = TimeSpan.Parse("0:0:3");
+            x.AutoReverse = true;
+            Point aufenthalt = kunde.TransformToAncestor(Application.Current.MainWindow).Transform(new Point(0, 0));
+            if (aufenthalt.Y < Height)
+            {
+                x.Completed += nochmal_Completed;
+            }
+            else
+            { MessageBox.Show("Einkauf abgeschlossen, stehe an der Kasse"); }
+            kunde.BeginAnimation(Canvas.LeftProperty, x);
+        }
+
+        private void nochmal_Completed(object sender, EventArgs e)
+        {
+            DoubleAnimation y = new DoubleAnimation();
+            y.By = 90; // Double.Parse(regale.Children[1].GetValue(WidthProperty).ToString());
+            y.Duration = TimeSpan.Parse("0:0:3");
+            y.Completed += x_Completed;
+            kunde.BeginAnimation(Canvas.TopProperty, y);
         }
     }
 }
