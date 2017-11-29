@@ -5,24 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StackPanel_Regale_WpfApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="650">
-
-    <DockPanel Name="Dock">
-        <Button DockPanel.Dock="Bottom">unten</Button>
-        <Button DockPanel.Dock="Top">oben</Button>
-        <Button DockPanel.Dock="Right">rechts</Button>
-        <Button DockPanel.Dock="Left">links</Button>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                  VerticalScrollBarVisibility="Auto">
-            <StackPanel Name="regale" Orientation="Vertical" Margin="0, 0, 0, 0">
-                <StackPanel.Resources>
-                    <Style TargetType="Label">
-                        <Setter Property="BorderThickness" Value="2, 2, 2, 2" />
-                        <Setter Property="Background" Value="Green" />
-                        <Setter Property="Height" Value="30" />
-                    </Style>
-                </StackPanel.Resources>
+        Title="MainWindow" Height="650" Width="800" Loaded="Window_Loaded">
+    <Canvas Height="600" Width="820" Name="canvas" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Ellipse Name="kunde" Width="10" Height="10" Panel.ZIndex="99" Fill="Cyan" Canvas.Left="10" Canvas.Top="10">
+        </Ellipse>
+        <DockPanel Margin="5,15,0,0">
+            <Label DockPanel.Dock="Top" Width="auto" Background="Purple" >HeadLine</Label>
+            <StackPanel Name="steuerung" DockPanel.Dock="Left" Width="30" Background="Purple">
+                <Label Height="auto">Steuerung</Label>
+                <Button Name="start" Click="start_Click">start</Button>
             </StackPanel>
-        </ScrollViewer>
-    </DockPanel>
+            
+            <Label DockPanel.Dock="Right" Width="30" Background="Purple">Right</Label>
+            <Label DockPanel.Dock="Bottom" Width="100" Background="Purple">BottomInfo</Label>
+            <Button DockPanel.Dock="Bottom" >Ende</Button>
+            <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                        VerticalScrollBarVisibility="Visible" BorderThickness="2">
+                <StackPanel Name="regale" Orientation="Vertical" Margin="5,15,0,0">
+                    <StackPanel.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="BorderThickness" Value="2, 2, 2, 2" />
+                            <Setter Property="Background" Value="Green" />
+                            <Setter Property="Height" Value="30" />
+                        </Style>
+                    </StackPanel.Resources>
+                </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+        
+    </Canvas>
 </Window>

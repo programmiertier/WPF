@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -20,6 +21,8 @@ namespace StackPanel_Regale_WpfApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<Label> gangbei = new List<Label>(); // soll das Abbiegen in die Gänge steuern
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -36,14 +39,16 @@ namespace StackPanel_Regale_WpfApplication
                 StackPanel gang = new StackPanel();
                 gang.Name = "Gang" + zaehl;
                 gang.Orientation = System.Windows.Controls.Orientation.Horizontal;
-
                 StackPanel gangVor = new StackPanel();
+                gangVor.Orientation = System.Windows.Controls.Orientation.Vertical;
                 Label leerVorO = new Label { Content = " " }; leerVorO.Background = Brushes.AntiqueWhite;
                 Label leerVorM = new Label { Content = " " }; leerVorM.Background = Brushes.AntiqueWhite;
+                gangbei.Add(leerVorM);
                 Label leerVorU = new Label { Content = " " }; leerVorU.Background = Brushes.AntiqueWhite;
                 gangVor.Children.Add(leerVorO);
                 gangVor.Children.Add(leerVorM);
                 gangVor.Children.Add(leerVorU);
+                gang.Children.Add(gangVor);
                 for (int reg = 0; reg < 40; reg++)
                 {
                     StackPanel regganreg = new StackPanel();
@@ -70,6 +75,41 @@ namespace StackPanel_Regale_WpfApplication
                 gang.Children.Add(gangNach);
                 regale.Children.Add(gang);
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // double pos;
+            foreach (Label g in gangbei)
+            {
+                Point relativePoint = g.TransformToAncestor(Application.Current.MainWindow).Transform(new Point(0, 0));
+                MessageBox.Show(relativePoint.ToString());
+                Ellipse kundenAlsKreis = new Ellipse
+                {
+                    Width = 10,
+                    Height = 10,
+                    Fill = Brushes.Black
+
+                };
+                canvas.Children.Add(kundenAlsKreis);
+                Canvas.SetTop(kundenAlsKreis, relativePoint.Y);
+                Canvas.SetLeft(kundenAlsKreis, relativePoint.X);
+                
+            }
+        }
+        private void start_Click(object sender, RoutedEventArgs e)
+        {
+            Point relativePoint = gangbei[0].TransformToAncestor(Application.Current.MainWindow).Transform(new Point(0, 0));
+
+            DoubleAnimation x = new DoubleAnimation();
+            DoubleAnimation y = new DoubleAnimation();
+            x.From = 40;
+            x.To = relativePoint.X;
+            y.To = relativePoint.Y;
+            x.Duration = TimeSpan.Parse("0:0:2");
+            y.Duration = TimeSpan.Parse("0:0:2");
+            kunde.BeginAnimation(Canvas.TopProperty, y);
+            kunde.BeginAnimation(Canvas.LeftProperty, x);
         }
     }
 }
