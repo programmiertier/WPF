@@ -60,7 +60,7 @@ namespace EigeneKlasseIn_WpfApplication
             bla.Left = 400;
             
             // bla.Top = n.wagen.Margin.Top;
-            x.To = bla;
+            
             x.Duration = TimeSpan.Parse("0:0:3");
             x.BeginTime = TimeSpan.Parse("0:0:" + Kunde.kundennummer);
             for (int zaehl = 0; zaehl < anzKunden; zaehl++)
@@ -71,6 +71,7 @@ namespace EigeneKlasseIn_WpfApplication
                 raumdarstellung.Children.Add(n.wagen);
 
                 bla.Top = n.wagen.Margin.Top;
+                x.To = bla;
                 x.AutoReverse = autoreverse;
                 n.wagen.BeginAnimation(Image.MarginProperty, x);
                 autoreverse = !autoreverse;
