@@ -41,7 +41,7 @@ namespace DB_Anbindung_WpfApplication
             while (Reader.Read())
             {
                 string row = "";
-                for (int i = 0; i < Reader.FielCount; i++)
+                for (int i = 0; i < Reader.FieldCount; i++)
                 { row += Reader.GetValue(i).ToString() + "\t"; }
                 row += "\n";
                 // Console.WriteLine(row);
