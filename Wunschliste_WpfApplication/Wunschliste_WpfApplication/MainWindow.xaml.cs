@@ -23,6 +23,8 @@ namespace Wunschliste_WpfApplication
         public MainWindow()
         {
             InitializeComponent();
+            Kram zeug = new Kram();
+            
         }
     }
 }

@@ -6,7 +6,33 @@
         xmlns:local="clr-namespace:Wunschliste_WpfApplication"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources> <!-- statt im Code behind -->
+        <x:Array x:Key="kram" Type="{x:Type local:Kram}" >
+            <local:Kram bezeichnung="Gummibärchen" preis="2" />
+            <local:Kram bezeichnung="Apfelkuchen" preis="12" />
+            <local:Kram bezeichnung="Helles" preis="14" />
+            <local:Kram bezeichnung="Kaffee" preis="16" />
+        </x:Array>
+        <!-- wie sollen die Objekte dargestellt werden -->
+        <DataTemplate DataType="{x:TypeExtension local:Kram}">
+            <Border BorderBrush="Lime" BorderThickness="4" Background="Gray">
+                <TextBlock Width="200" Text="{Binding bezeichnung}">
+                </TextBlock>
+            </Border>
+        </DataTemplate>
+
+    </Window.Resources>
+    <DockPanel>
+        <ScrollViewer>
+            <ListBox Name="dieListBox" Background="Purple" Width="300" 
+                     ItemsSource="{Binding Source={StaticResource kram}}" 
+                     />
+            <!--ScrollViewer.VerticalScrollBarVisibility="Visible" ginge auch direkt in der ListBox -->
+        </ScrollViewer>
+        <Label Width="100" Background="Lime" DockPanel.Dock="Bottom" Content="Gesamtsumme: 00.00"/>
+        <Border BorderBrush="Lavender" BorderThickness="4" CornerRadius="10">
+            <Canvas Background="Cyan"></Canvas> <!-- braucht keinen Namen, weil Drag & Drop -->
+        </Border>
+
+    </DockPanel>
 </Window>
