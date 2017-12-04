@@ -32,9 +32,10 @@
             <!-- per Hover ListBox NICHT aber TextBlock! -->
             <!-- object bubblet nach oben -->
         </ScrollViewer>
-        <Label Width="100" Background="Lime" DockPanel.Dock="Bottom" Content="Gesamtsumme: 00.00"/>
+        <Label Width="100" Background="Lime" DockPanel.Dock="Bottom" Content="Gesamtsumme: 00.00" Name="label"/>
         <Border BorderBrush="Lavender" BorderThickness="4" CornerRadius="10">
-            <Canvas Background="Cyan"></Canvas> <!-- braucht keinen Namen, weil Drag & Drop -->
+            <Canvas Name="wunschzettel" Background="Cyan" AllowDrop="True" DragEnter="Canvas_DragEnter" DragLeave="Canvas_DragLeave" DragOver="wunschzettel_DragOver" Drop="wunschzettel_Drop">
+            </Canvas> <!-- braucht keinen Namen, weil Drag & Drop -->
         </Border>
 
     </DockPanel>
