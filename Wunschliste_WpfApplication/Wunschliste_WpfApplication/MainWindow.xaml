@@ -27,7 +27,10 @@
             <ListBox Name="dieListBox" Background="Purple" Width="300" 
                      ItemsSource="{Binding Source={StaticResource kram}}" 
                      />
+            <!-- MouseDown="ListBox_MouseDown" ginge auch, aber heute mal wieder nicht -->
             <!--ScrollViewer.VerticalScrollBarVisibility="Visible" ginge auch direkt in der ListBox -->
+            <!-- per Hover ListBox NICHT aber TextBlock! -->
+            <!-- object bubblet nach oben -->
         </ScrollViewer>
         <Label Width="100" Background="Lime" DockPanel.Dock="Bottom" Content="Gesamtsumme: 00.00"/>
         <Border BorderBrush="Lavender" BorderThickness="4" CornerRadius="10">

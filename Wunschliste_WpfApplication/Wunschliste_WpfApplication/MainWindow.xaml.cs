@@ -23,8 +23,16 @@ namespace Wunschliste_WpfApplication
         public MainWindow()
         {
             InitializeComponent();
-            Kram zeug = new Kram();
-            
+            dieListBox.AddHandler(ListBox.MouseDownEvent, new MouseButtonEventHandler(ListBox_MouseDown), true);
+        }
+
+        private void ListBox_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // MessageBox.Show("ausgewählt wurde " + (dieListBox.SelectedItem as Kram).bezeichnung);   // welches Item geklickt wurde
+                                                                                                    // dieListBox.SelectedItem.ToString() sagt halt nur Kram
+            Kram wunsch = dieListBox.SelectedItem as Kram;
+            DataObject data = new DataObject(wunsch); // oder (typeof(Kram), wunsch), statt Kram wunsch = dieListBox.SelectedItem as Kram;
+            DragDrop.DoDragDrop(dieListBox, data, DragDropEffects.Copy);
         }
     }
 }
