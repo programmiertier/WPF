@@ -1,0 +1,38 @@
+﻿<Window x:Class="Jukebox_WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jukebox_WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <TabControl Height="200" Width="400" >
+            <TabItem Header="Klassik" Background="Beige">
+                <StackPanel Name="klassische">
+                    <RadioButton Content="Beethoven - 5." GroupName="klassik" Checked="clickyClick" Tag="beethoven5.mp3"/>
+                    <RadioButton Content="Mozart - Kleine Nachtmusik" GroupName="klassik" Checked="clickyClick" Tag="mozartkleinenachtmusik.mp3"/>
+                    <RadioButton Content="Wagner - Siegfrieds Tod" GroupName="klassik" Checked="clickyClick" Tag="wagnersiegfriedstod.mp3"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Rock" Background="Black" Foreground="LightGray">
+                <StackPanel Name="rockig">
+                    <RadioButton Content="Queen - Don't stop me now" GroupName="rock" Checked="clickyClick" Tag="queendontstopmenow.mp3"/>
+                    <RadioButton Content="Queen und Bowie - Under pressure" GroupName="rock" Checked="clickyClick" Tag="queenbowieunderpressure.mp3"/>
+                    <RadioButton Content="David Bowie - Heroes" GroupName="rock" Checked="clickyClick" Tag="davidbowieheroes.mp3"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Metal" Background="DarkGray" Foreground="White">
+                <StackPanel>
+                    <RadioButton Content="Soil - Halo" GroupName="metal" Checked="clickyClick" Tag="soilhalo.mp3"/>
+                    <RadioButton Content="NIN - Closer" GroupName="metal" Checked="clickyClick" Tag="nincloser.mp3"/>
+                    <RadioButton Content="Rob Zombie - Dragula" GroupName="metal" Checked="clickyClick" Tag="robzombiedragula.mp3"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        <TextBox Name="laufzeit" />
+        <ProgressBar Name="progressbar" Height="20" />
+        <Button Name="startbtn" Content="Abspielen" Click="abspielen_Click" />
+        <!-- <Label Name="auswahlhier" Content="gewählt" Width="200" Height="50" Background="Purple" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>   -->
+    </StackPanel>
+</Window>
