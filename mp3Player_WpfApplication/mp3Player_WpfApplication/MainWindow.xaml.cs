@@ -35,14 +35,14 @@ namespace mp3Player_WpfApplication
             if (openFileDialog.ShowDialog() == true)
             {
                 mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
-                mediaPlayer.Source = new Uri((openFileDialog.FileName));
+                mediaPlayer.Source = new Uri(openFileDialog.FileName);
                 mediaPlayer.LoadedBehavior = MediaState.Manual;
             }
         }
 
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
         {
-            MessageBox.Show("Lied zu Ende ");
+            MessageBox.Show("Lied ist vorbei");
         }
 
         private void playBtn_Click(object sender, RoutedEventArgs e)
