@@ -44,9 +44,22 @@ namespace Map_WpfApplication
             koord.Add(e.GetPosition(Application.Current.MainWindow));
             if (koord.Count == 2)
             {
-                double entfernung;
-                entfernung = Math.Sqrt(Math.Pow(Math.Abs(koord[0].X - koord[1].X), 2) 
+                double entfernung = 0;
+                for (int zaehl = 1; zaehl < koord.Count; zaehl++)
+                {
+                    Line l = new Line
+                    {
+                        X1 = Math.Abs(koord[zaehl - 1].X),
+                        X2 = Math.Abs(koord[zaehl].X),
+                        Y1 = Math.Abs(koord[zaehl - 1].Y),
+                        Y2 = Math.Abs(koord[zaehl].Y),
+                        Stroke = Brushes.Yellow,
+                        StrokeThickness = 4
+                    };
+                    diekarte.Children.Add(l);
+                    entfernung = Math.Sqrt(Math.Pow(Math.Abs(koord[0].X - koord[1].X), 2) 
                                      + Math.Pow(Math.Abs(koord[0].Y - koord[1].Y), 2));
+                }
                 MessageBox.Show(entfernung.ToString());
             }
         }
