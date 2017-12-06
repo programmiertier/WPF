@@ -1,0 +1,32 @@
+﻿<Window x:Class="Raumberechnung_WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Raumberechnung_WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Slider Name="vertikal" 
+               HorizontalAlignment="Left" 
+               Orientation="Vertical" 
+               Minimum="0" 
+               Maximum="200" 
+               TickFrequency="10" 
+               ValueChanged="vertikal_ValueChanged" />
+        <Button Name="knopf" Background="Cyan" Content="hier ist der knopf" 
+                Width="100"
+                Height="100"
+                VerticalContentAlignment="top" 
+                HorizontalContentAlignment="Left"
+                />
+        <Slider Name="horizontal" 
+                VerticalAlignment="Bottom" 
+                HorizontalAlignment="Stretch" 
+                Orientation="Horizontal" 
+                Minimum="0" Maximum="200" 
+                TickFrequency="10" 
+                ValueChanged="horizontal_ValueChanged" 
+                Width="212" />
+    </Grid>
+</Window>
