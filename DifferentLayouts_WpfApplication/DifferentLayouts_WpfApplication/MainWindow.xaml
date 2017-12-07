@@ -1,0 +1,19 @@
+﻿<Window x:Class="DifferentLayouts_WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DifferentLayouts_WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <DockPanel Name="dockhier" HorizontalAlignment="Left" Height="299" LastChildFill="False" Margin="10,10,0,0" VerticalAlignment="Top" Width="497">
+            <Menu DockPanel.Dock="Top" Height="25" >
+                <MenuItem Name="anfang" Header="Anfang" Width="auto" Click="anfang_Click"/>
+                <MenuItem Name="mitte" Header="Mitte" Width="auto" Click="mitte_Click"/>
+                <MenuItem Name="ende" Header="Ende" Width="auto" Click="ende_Click"/>
+            </Menu>
+        </DockPanel>
+
+    </Grid>
+</Window>
