@@ -1,0 +1,21 @@
+﻿<Window x:Class="BindingCodeBehind_WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BindingCodeBehind_WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TextBox x:Name="textBox" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="40,80,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="{Binding ElementName=MainWindow.myValue, Mode=OneWay, Path=MainWindow.myValue.Length}" VerticalAlignment="Top" Width="120"/>
+        <!-- Text="{Binding ElementName=label, Mode=OneWay, Path=Content}" VerticalAlignment="Top" Width="120"/> funktioniert... das oben... nicht-->
+        <Label x:Name="label" Content="5" HorizontalAlignment="Left" Margin="232,176,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
